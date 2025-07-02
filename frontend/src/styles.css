@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    font-size: 12px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #1e1e1e; /* vs-bg color */
+}
+
+
+/* Text wrapping only for markdown content */
+.markdown-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Terminal-style markdown styling - full line spacing only */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    font-size: inherit; /* Same as body text */
+    font-weight: bold;
+    color: #dcdcaa; /* vs-function color */
+    margin: 1em 0; /* Full line spacing */
+}
+
+.markdown-content p {
+    margin: 0 0 1em 0; /* One line after paragraphs */
+    font-size: inherit;
+}
+
+.markdown-content strong,
+.markdown-content b {
+    font-weight: bold;
+    color: #d4d4d4; /* vs-text color */
+}
+
+.markdown-content em,
+.markdown-content i {
+    font-style: italic;
+    color: #ce9178; /* vs-assistant color */
+}
+
+.markdown-content code {
+    font-family: monospace;
+    font-size: inherit;
+    color: #4ec9b0; /* vs-type color */
+}
+
+.markdown-content pre {
+    font-family: monospace;
+    font-size: inherit;
+    margin: 1em 0; /* Full line spacing */
+    white-space: pre-wrap; /* Wrap long lines */
+}
+
+.markdown-content pre code {
+    color: inherit;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin: 1em 0; /* Full line spacing */
+    padding-left: 0;
+    list-style: none;
+}
+
+.markdown-content li {
+    margin: 0; /* No spacing between list items */
+    font-size: inherit;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.markdown-content ul li::before {
+    content: "- ";
+    color: #8c8c8c; /* vs-muted */
+    position: absolute;
+    left: 0;
+}
+
+.markdown-content ol li::before {
+    content: counter(list-item) ". ";
+    color: #8c8c8c; /* vs-muted */
+    position: absolute;
+    left: 0;
+}
+
+.markdown-content blockquote {
+    border-left: 2px solid #8c8c8c; /* vs-muted */
+    padding-left: 0.75em;
+    margin: 1em 0; /* Full line spacing */
+    color: #8c8c8c; /* vs-muted */
+    font-style: italic;
+}
+
+.markdown-content a {
+    color: #569cd6; /* vs-accent */
+    text-decoration: underline;
+}
+
+.markdown-content a:hover {
+    color: #ffffff;
+}
+
+.markdown-content hr {
+    border: none;
+    border-top: 1px solid #3e3e42; /* vs-border */
+    margin: 1em 0; /* Full line spacing */
+}
+
+/* Remove top margin from first element to avoid double spacing */
+.markdown-content > *:first-child {
+    margin-top: 0;
+}
+
+/* Remove bottom margin from last element to avoid extra spacing */
+.markdown-content > *:last-child {
+    margin-bottom: 0;
+}
+

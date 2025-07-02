@@ -1,0 +1,23 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		// Frontend specific overrides
+		"target": "ES2022",
+		"module": "ESNext",
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": ["node"],
+
+		// Frontend has its own src directory, but also includes parent types
+		"rootDir": "..",
+		"outDir": "./dist",
+
+		// Remove core package specific settings
+		"declaration": false,
+		"declarationMap": false,
+		"sourceMap": false
+	},
+	"include": ["src/**/*", "../src/types.ts"],
+	"exclude": ["node_modules", "dist"]
+}
