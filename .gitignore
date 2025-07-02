@@ -97,7 +97,3 @@ claude-traffic-*.log
 .claude
 .claude-trace
 /test
-
-# Frontend dependencies
-frontend/node_modules/
-frontend/dist

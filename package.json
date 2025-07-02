@@ -1,54 +1,55 @@
 {
-	"name": "@mariozechner/claude-trace",
-	"version": "1.0.3",
-	"description": "Record all your interactions with Claude Code as you develop your projects",
-	"main": "dist/index.js",
-	"bin": {
-		"claude-trace": "dist/cli.js"
-	},
-	"scripts": {
-		"build": "tsc && cp src/interceptor-loader.js src/token-extractor.js dist/ && npm run build:frontend",
-		"build:frontend": "cd frontend && npm run build",
-		"dev": "concurrently \"npm run dev:core\" \"npm run dev:copy\" \"npm run dev:frontend\"",
-		"dev:core": "tsc --watch --preserveWatchOutput",
-		"dev:copy": "nodemon --watch src/interceptor-loader.js --watch src/token-extractor.js --exec 'mkdir -p dist && cp src/interceptor-loader.js src/token-extractor.js dist/'",
-		"dev:frontend": "cd frontend && npm run dev",
-		"clean": "rm -rf dist",
-		"prepublishOnly": "npm run clean && npm run build",
-		"test": "node --require ./dist/interceptor.js echo 'test'",
-		"test:generate": "npx tsx src/cli test/test-traffic.jsonl test/index.html",
-		"typecheck": "tsc --noEmit"
-	},
-	"files": [
-		"dist/**/*",
-		"frontend/dist/**/*",
-		"frontend/template.html",
-		"README.md"
-	],
-	"keywords": [
-		"claude",
-		"anthropic",
-		"logging",
-		"api",
-		"debugging",
-		"http",
-		"interception"
-	],
-	"author": "Mario Zechner",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mariozechner/claude-trace.git"
-	},
+  "name": "@loki-zhou/claude-trace",
+  "version": "1.0.4",
+  "description": "Record all your interactions with Claude Code as you develop your projects, with additional features",
+  "main": "dist/index.js",
+  "bin": {
+    "claude-trace": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && cp src/interceptor-loader.js src/token-extractor.js dist/ && npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "dev": "concurrently \"npm run dev:core\" \"npm run dev:copy\" \"npm run dev:frontend\"",
+    "dev:core": "tsc --watch --preserveWatchOutput",
+    "dev:copy": "nodemon --watch src/interceptor-loader.js --watch src/token-extractor.js --exec 'mkdir -p dist && cp src/interceptor-loader.js src/token-extractor.js dist/'",
+    "dev:frontend": "cd frontend && npm run dev",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "node --require ./dist/interceptor.js echo 'test'",
+    "test:generate": "npx tsx src/cli test/test-traffic.jsonl test/index.html",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist/**/*",
+    "frontend/dist/**/*",
+    "frontend/template.html",
+    "README.md"
+  ],
+  "keywords": [
+    "claude",
+    "anthropic",
+    "logging",
+    "api",
+    "debugging",
+    "http",
+    "interception"
+  ],
+  "author": "Your Name <your@email.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/loki-zhou/claude-trace#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loki-zhou/claude-trace.git"
+  },
 	"engines": {
 		"node": ">=16.0.0"
-	},
-	"devDependencies": {
+  },
+  "devDependencies": {
 		"@types/node": "^20.19.4",
 		"concurrently": "^9.1.2",
 		"typescript": "^5.0.0"
-	},
-	"dependencies": {
+  },
+  "dependencies": {
 		"@anthropic-ai/sdk": "^0.52.0"
-	}
+  }
 }
